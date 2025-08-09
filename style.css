@@ -1,0 +1,313 @@
+/* ===== Light Mode Palette (Gradients) ===== */
+:root {
+  --color-dark: #000000;
+  --color-light: #ffffff;
+  --color-accent-light: #c592c6;
+  --color-accent-mid: #b46d81;
+  --color-accent-dark: #65376d;
+
+  /* Gradients for light mode */
+  --bg-color: linear-gradient(135deg, #ffffff, #b46d81);
+  --text-color: var(--color-dark);
+  --card-bg: linear-gradient(135deg, #ffffff, #cec3c3);
+  --border-color: #ffffff;
+  --btn-bg: linear-gradient(135deg, #c592c6, #b46d81);
+  --btn-text: var(--color-light);
+
+  /* Transition for theme changes */
+  --transition-speed: 0.4s;
+}
+
+/* ===== Dark Mode Palette (Gradients) ===== */
+body.dark-mode {
+  --bg-color: linear-gradient(135deg, #000, #b46d81);
+  --text-color: var(--color-light);
+  --card-bg: linear-gradient(135deg, #000, rgb(90, 83, 83));
+  --border-color: #444;
+  --btn-bg: linear-gradient(135deg, #65376d, #b46d81);
+  --btn-text: var(--color-light);
+}
+
+/* Smooth transitions for all themed elements */
+body, .card, .project, .btn, .btn-subtle, .site-header, .hero {
+  transition: background var(--transition-speed) ease, 
+              color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease,
+              border-color var(--transition-speed) ease;
+}
+
+
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 102%; /* Increased font size by 2% */
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+/* ===== Header ===== */
+.site-header {
+  background: var(--bg-color);
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: none;
+}
+
+.site-header nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  box-shadow: 0 0 15px var(--btn-bg);
+  transform: scale(1.1);
+}
+
+#theme-toggle:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 20px var(--btn-bg);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  background: var(--bg-color);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+}
+
+.hero-text .role {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+}
+
+.hero-text p {
+  margin: 1rem 0 2rem;
+  color: var(--text-color);
+}
+
+.hero-img img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+/* Buttons */
+.btn, .btn-subtle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-subtle {
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.btn-subtle:hover {
+  background: var(--color-accent-light);
+}
+
+/* ===== About Section ===== */
+.about-links {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ===== Skills Section ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ===== Projects Section ===== */
+.project {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-image img {
+  width: 300px;
+  border-radius: 0.75rem;
+}
+
+.project-details {
+  flex: 1;
+}
+
+.project-details .stack {
+  color: var(--color-accent-dark);
+  font-size: 0.9rem;
+  margin: 0.25rem 0 1rem;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: none;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 992px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-img {
+    order: -1;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text .role {
+    font-size: 1.5rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .project {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-image img {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .btn, .btn-subtle {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .cards {
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .about-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
